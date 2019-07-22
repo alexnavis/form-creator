@@ -1,0 +1,46 @@
+{
+  "name": "@digifi-los/form-creator",
+  "version": "0.0.1",
+  "description": "DigiFi Form Creator",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digifi-io/form-creator.git"
+  },
+  "author": "DigiFi",
+  "contributors": [
+    "Richard Shyong <richard@digifi.io>"
+  ],
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/digifi-io/form-creator/issues"
+  },
+  "homepage": "https://github.com/digifi-io/form-creator#readme",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "coveralls": "^2.13.1",
+    "grunt": "^1.0.1",
+    "grunt-coveralls": "^1.0.1",
+    "grunt-jsdoc": "^2.1.0",
+    "grunt-mocha-cov": "^0.4.0",
+    "grunt-mocha-istanbul": "^5.0.2",
+    "grunt-simple-mocha": "^0.4.1",
+    "istanbul": "^0.4.5",
+    "jsdoc": "^3.4.3",
+    "jsdoc-to-markdown": "^3.0.0",
+    "mocha": "^3.4.2",
+    "mocha-lcov-reporter": "^1.3.0"
+  },
+  "dependencies": {
+    "deepmerge": "^1.5.0",
+    "flat": "^2.0.1"
+  },
+  "directories": {
+    "doc": "doc",
+    "lib": "lib",
+    "test": "test"
+  }
+}

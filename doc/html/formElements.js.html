@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: formElements.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: formElements.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+const OMITTED_PROPERTIES = ['groupElements', 'textOffset', 'hasValidations', 'innerRow',];
+
+/**
+ * This function returns a basic form object.
+ * @returns {Object} Returns a basic form object.
+ */
+function form() {
+  return {
+    component: 'ResponsiveForm',
+    thisprops: {},
+    asyncprops: {},
+    props: {
+      onSubmit: {},
+      validations: [],
+      formgroups: [],
+    },
+  }
+};
+
+/**
+ * This function assigns layoutProps to groupElements.
+ * @param {Object} options Object representing the entire row.
+ * @param {Object} ele Object representing the individual input within the row group.
+ * @param {number} i Represents the position of the individual input within the row group.
+ * @returns {Object} Returns an Object representing the individual input within the row group with layoutProps added.
+ */
+function mapGroupElements(options, ele, i) {
+  let modifiedOptions = Object.assign({}, options.groupElements[i]);
+  OMITTED_PROPERTIES.forEach(ele => {
+    delete modifiedOptions[ele];
+  });
+  return Object.assign({}, box(ele), {
+    layoutProps: {
+      innerFormItem: true,
+      isExpanded: true,
+    },
+  }, modifiedOptions);
+};
+
+/**
+ * This function returns the formElement object for the form manifest.
+ * @param {Object} options Object representing the entire row.
+ * @returns {Object} Returns the formElement object.
+ */
+function box(options) {
+  let formElement = {};
+  switch (options.type) {
+    case 'text': formElement = Object.assign({}, {
+      type: 'text',
+      name: options.name,
+      placeholder: options.placeholder,
+    });
+      break;
+    case 'layout': formElement = Object.assign({}, {
+      type: 'layout',
+      layoutProps: {},
+      value: {},
+    });
+      break;
+    case 'group': formElement = Object.assign({}, {
+      type: 'group',
+      label: options.label,
+      groupElements: options.groupElements.map(mapGroupElements.bind(null, options)),
+    });
+      break;
+    case 'select': formElement = Object.assign({}, {
+      type: 'select',
+      name: options.name,
+      value: options.value,
+    });
+      break;
+    case 'maskedinput': formElement = Object.assign({}, {
+      type: 'maskedinput',
+      name: options.name,
+      placeholder: options.placeholder,
+      label: options.label,
+    });
+      break;
+    case 'checkbox': formElement = Object.assign({}, {
+      type: 'checkbox',
+      name: options.name,
+      validateOnChange: true,
+      layoutProps: {
+        size: 'isNarrow',
+        offset: 'isOffset3Tablet',
+      },
+    });
+      break;
+    case 'submit': formElement = Object.assign({}, {
+      type: 'submit',
+      value: options.value,
+      passProps: {
+        size: 'isLarge',
+      },
+      layoutProps: {
+        size: 'isNarrow',
+        formItemStyle: {
+          display: 'flex',
+          justifyContent: 'center',
+        },
+      },
+    })
+    default: null;
+  }
+  if (['layout', 'checkbox', 'submit',].indexOf(options.type) === -1 &amp;&amp; options.innerRow) {
+    formElement = Object.assign({}, formElement, {
+      layoutProps: {
+        innerFormItem: true,
+        isExpanded: true,
+      },
+    });
+  } else if (['layout', 'checkbox', 'submit',].indexOf(options.type) === -1) {
+    formElement = Object.assign({}, formElement, {
+      layoutProps: {
+        horizontalform: true,
+      },
+    });
+  }
+  if (options.type === 'layout' &amp;&amp; options.textOffset) {
+    formElement = Object.assign({}, formElement, {
+      layoutProps: {
+        offset: 'isOffset3',
+        style: {
+          marginTop: '-0.5rem',
+        },
+      },
+    });
+  };
+  if (options.hasValidations) {
+    formElement = Object.assign({}, formElement, {
+      onBlur: true,
+      validateOnBlur: true,
+      errorIconRight: true,
+    })
+  };
+  return formElement;
+};
+
+module.exports = {
+  OMITTED_PROPERTIES,
+  form,
+  box,
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="MakeForm.MakeForm.html">MakeForm</a></li></ul><h3>Global</h3><ul><li><a href="global.html#box">box</a></li><li><a href="global.html#form">form</a></li><li><a href="global.html#formElementsCreator">formElementsCreator</a></li><li><a href="global.html#handleGroupData">handleGroupData</a></li><li><a href="global.html#mapGroupElements">mapGroupElements</a></li><li><a href="global.html#modifyValidations">modifyValidations</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.2</a> on Thu Jul 13 2017 17:55:26 GMT-0400 (EDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,7 +1,5 @@
-# CIS Form Creator [![Build Status](https://travis-ci.com/digifi-io/cis-form-creator.svg?token=9kgbbUSsk8imu8BH81zS&branch=master)](https://travis-ci.com/digifi-io/cis-form-creator) [![Coverage Status](https://coveralls.io/repos/github/digifi-io/cis-form-creator/badge.svg?branch=master&t=XpIOLM)](https://coveralls.io/github/digifi-io/cis-form-creator?branch=master)
-
-
-CIS Form Creator is a class that helps with creating a Responsive Form manifest. By using the given class methods, you can easily add formElements (as well as other fields) to the Responsive Form.
+# DigiFi Form Creator
+Form Creator is a class that helps with creating a Responsive Form manifest. By using the given class methods, you can easily add formElements (as well as other fields) to the Responsive Form.
 
 ## Class Methods
 ### addFormElements(options) - Allows you to add form elements to form
@@ -79,11 +77,11 @@ instance.getForm();
 
 To install
 
-`$ npm install @digifi/cis-form-creator --save`
+`$ npm install @digifi-los/form-creator --save`
 
 To uninstall
 
-`$ npm uninstall @digifi/cis-form-creator --save`
+`$ npm uninstall @digifi-los/form-creator --save`
 
 ## Development
 *Make sure you have grunt installed*

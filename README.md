@@ -1,5 +1,5 @@
 # DigiFi Form Creator
-Form Creator is a class that helps with creating a Responsive Form manifest. By using the given class methods, you can easily add formElements (as well as other fields) to the Responsive Form.
+Form Creator is a class used within DigiFi's open-source loan origination system ("LOS") to helps create a Responsive Form manifest. By using the given class methods, you can easily add formElements (as well as other fields) to the Responsive Form.
 
 ## Class Methods
 ### addFormElements(options) - Allows you to add form elements to form
@@ -102,3 +102,16 @@ $ jsdoc2md lib/*.js index.js > doc/api.md
 Run the following command to test and return coverage
 
 `$ grunt test`
+
+## For More Information
+
+*   [DigiFi Website](https://www.digifi.io)
+*   [DigiFi Blog](https://digifi.io/blog/)
+*   [Installation Guide](https://docs.digifi.io/v3.0/docs/system-requirements)
+*   [Developer Guide](https://docs.digifi.io/v3.0/docs/decision-engine)
+*   [User Manual Guide](https://docs.digifi.io/v3.0/docs/overview-of-my-account)
+*   [API Reference](https://docs.digifi.io/v3.0/reference)
+
+## License
+
+[Apache License 2.0](LICENSE)
